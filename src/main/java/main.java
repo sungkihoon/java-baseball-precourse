@@ -15,32 +15,13 @@ public class main {
             int ballCount = 0;
             int regameNumber;
 
-            for (int i = 0; i < randomNumber.length; i++) {
-                int tempNumber = random.nextInt(9) + 1;
-                boolean check = true;
+            rannumCheck(random, randomNumber);
 
-                for (int j = 0; j < i; j++) {
-                    if (randomNumber[j] == tempNumber) {
-                        i--;
-                        check = false;
-                    }
-                }
-                if (check) {
-                    randomNumber[i] = tempNumber;
-                }
-            }
-
-            System.out.println(Arrays.toString(randomNumber)); //미션과 상관없지만 난수를 확인하기 위해 집어넣은 문장
             while (true) {
-
                 System.out.print("숫자를 입력해주세요 : ");
                 String number = scan.nextLine();
 
-                for (int i = 0; i < 3; i++) {
-                    inputNumber[i] = Integer.valueOf(number.split("")[i]);
-                }
-
-                System.out.println(Arrays.toString(inputNumber));
+                makeRannum(inputNumber, number);
 
                 for (int i = 0; i < 3; i++) {
 
@@ -71,6 +52,29 @@ public class main {
                 System.out.println("프로그램을 종료합니다!");
                 break;
             }
+        }
+    }
+
+    private static void rannumCheck(Random random, int[] randomNumber) {
+        for (int i = 0; i < randomNumber.length; i++) {
+            int tempNumber = random.nextInt(9) + 1;
+            boolean check = true;
+
+            for (int j = 0; j < i; j++) {
+                if (randomNumber[j] == tempNumber) {
+                    i--;
+                    check = false;
+                }
+            }
+            if (check) {
+                randomNumber[i] = tempNumber;
+            }
+        }
+    }
+
+    private static void makeRannum(int[] inputNumber, String number) {
+        for (int i = 0; i < 3; i++) {
+            inputNumber[i] = Integer.valueOf(number.split("")[i]);
         }
     }
 }
