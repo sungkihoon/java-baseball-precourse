@@ -1,13 +1,12 @@
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        Random random = new Random();
 
         while (true) {
-            Scanner scan = new Scanner(System.in);
-            Random random = new Random();
             int[] randomNumber = new int[3];
             int[] inputNumber = new int[3];
             int[] result = new int[3];
@@ -15,7 +14,7 @@ public class main {
             int ballCount = 0;
             int regameNumber;
 
-            rannumCheck(random, randomNumber);
+            makeRandomNumber(random, randomNumber);
 
             while (true) {
                 System.out.print("숫자를 입력해주세요 : ");
@@ -55,7 +54,7 @@ public class main {
         }
     }
 
-    private static void rannumCheck(Random random, int[] randomNumber) {
+    private static void makeRandomNumber(Random random, int[] randomNumber) {
         for (int i = 0; i < randomNumber.length; i++) {
             int tempNumber = random.nextInt(9) + 1;
             boolean check = true;
